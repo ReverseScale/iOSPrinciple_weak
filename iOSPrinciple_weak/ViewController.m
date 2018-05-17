@@ -16,13 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+//    [self weakfunc];
 }
 
+- (void)weakfunc {
+    NSObject *obj = [[NSObject alloc] init];
+    id __weak obj1 = obj; // 看好 weak 了
+    NSLog(@"weak obj1:%@", obj1);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

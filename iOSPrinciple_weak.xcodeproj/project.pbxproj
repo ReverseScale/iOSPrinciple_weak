@@ -15,6 +15,8 @@
 		345EB42D20AD30840035E733 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 345EB42C20AD30840035E733 /* main.m */; };
 		345EB43720AD30880035E733 /* iOSPrinciple_weakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 345EB43620AD30880035E733 /* iOSPrinciple_weakTests.m */; };
 		345EB44220AD30880035E733 /* iOSPrinciple_weakUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 345EB44120AD30880035E733 /* iOSPrinciple_weakUITests.m */; };
+		345EB45120AD57880035E733 /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345EB45020AD57880035E733 /* PushViewController.m */; };
+		345EB45420AD5AA10035E733 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 345EB45320AD5AA10035E733 /* TestView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		345EB43D20AD30880035E733 /* iOSPrinciple_weakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSPrinciple_weakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		345EB44120AD30880035E733 /* iOSPrinciple_weakUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSPrinciple_weakUITests.m; sourceTree = "<group>"; };
 		345EB44320AD30880035E733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		345EB44F20AD57880035E733 /* PushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
+		345EB45020AD57880035E733 /* PushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
+		345EB45220AD5AA00035E733 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		345EB45320AD5AA10035E733 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,10 @@
 				345EB41E20AD307A0035E733 /* AppDelegate.m */,
 				345EB42020AD307A0035E733 /* ViewController.h */,
 				345EB42120AD307A0035E733 /* ViewController.m */,
+				345EB44F20AD57880035E733 /* PushViewController.h */,
+				345EB45020AD57880035E733 /* PushViewController.m */,
+				345EB45220AD5AA00035E733 /* TestView.h */,
+				345EB45320AD5AA10035E733 /* TestView.m */,
 				345EB42320AD307A0035E733 /* Main.storyboard */,
 				345EB42620AD30840035E733 /* Assets.xcassets */,
 				345EB42820AD30840035E733 /* LaunchScreen.storyboard */,
@@ -264,6 +274,8 @@
 			files = (
 				345EB42220AD307A0035E733 /* ViewController.m in Sources */,
 				345EB42D20AD30840035E733 /* main.m in Sources */,
+				345EB45420AD5AA10035E733 /* TestView.m in Sources */,
+				345EB45120AD57880035E733 /* PushViewController.m in Sources */,
 				345EB41F20AD307A0035E733 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,7 @@ Principle weak
 
 今天整理一下 weak 的实现原理，先概括的讲 weak 其实是一个 hash（哈希）表，Key 是所指对象的地址，Value 是 weak 指针的地址数组。
 
-顺便发现其实现在想循环引用也挺难的，Xcode会有个提醒，黄黄的挺烦人的...
+顺便发现其实现在想循环引用也挺难的，Xcode会有个提醒，黄黄的挺显眼的...
 
 ![Markdown](http://i1.bvimg.com/646104/9a93f3fb5784d69f.png)
 
