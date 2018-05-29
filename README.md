@@ -8,7 +8,7 @@ Principle weak
 
 顺便发现其实现在想循环引用也挺难的，Xcode会有个提醒，黄黄的挺显眼的...
 
-![Markdown](http://i1.bvimg.com/646104/9a93f3fb5784d69f.png)
+![](http://og1yl0w9z.bkt.clouddn.com/18-5-29/59724988.jpg)
 
 ### Weak 实现原理
 Runtime维护了一个weak表，用于存储指向某个对象的所有weak指针。weak表其实是一个hash（哈希）表，Key是所指对象的地址，Value是weak指针的地址（这个地址的值是所指对象的地址）数组。
