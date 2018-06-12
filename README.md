@@ -1,7 +1,7 @@
 # iOSPrinciple_weak
 Principle weak
 
-### 引文
+## 引文
 之前只是认识到 weak 作为一种弱引用属性修饰词，不增加对象的引用计数，也不持有对象，对象消失后，指针自动变成nil。在ARC环境下，为避免循环引用，往往会把delegate属性用weak修饰。
 
 今天整理一下 weak 的实现原理，先概括的讲 weak 其实是一个 hash（哈希）表，Key 是所指对象的地址，Value 是 weak 指针的地址数组。
@@ -10,7 +10,7 @@ Principle weak
 
 ![](http://og1yl0w9z.bkt.clouddn.com/18-5-29/59724988.jpg)
 
-### Weak 实现原理
+## 实现原理
 Runtime维护了一个weak表，用于存储指向某个对象的所有weak指针。weak表其实是一个hash（哈希）表，Key是所指对象的地址，Value是weak指针的地址（这个地址的值是所指对象的地址）数组。
 
 底层的实现大体分为三步：
@@ -18,7 +18,7 @@ Runtime维护了一个weak表，用于存储指向某个对象的所有weak指�
 * 2.添加引用时：objc_initWeak函数会调用 objc_storeWeak() 函数， objc_storeWeak() 的作用是更新指针指向，创建对应的弱引用表。（给这个干兄弟落个户口，介绍给亲戚朋友）
 * 3.释放时，调用clearDeallocating函数。clearDeallocating函数首先根据对象地址获取所有weak指针地址的数组，然后遍历这个数组把其中的数据设为nil，最后把这个entry从weak表中删除，最后清理对象的记录。（最后等这个干兄弟干完活后，被卸磨杀驴）
 
-分步解析内部实现：
+### 分步解析内部实现：
 
 1）初始化时：runtime会调用objc_initWeak函数，objc_initWeak函数会初始化一个新的weak指针指向对象的地址。
 
@@ -62,7 +62,7 @@ objc_storeWeak的函数声明如下：
 id objc_storeWeak(id *location, id value);
 ```
 
-objc_storeWeak 方法的实现
+objc_storeWeak 方法的实现：
 
 ```c++
 // HaveOld:     true - 变量有值
@@ -154,9 +154,9 @@ static id storeWeak(id *location, objc_object *newObj) {
 }
 ```
 
-拆分解析一下上述代码
+### 拆分解析上述代码
 
-* SideTable
+① SideTable
 
 主要用于管理对象的引用计数和 weak 表。在 NSObject.mm 中声明其数据结构：
 
@@ -173,7 +173,7 @@ struct SideTable {
 
 对于 slock 和 refcnts 两个成员不用多说，第一个是为了防止竞争选择的自旋锁，第二个是协助对象的 isa 指针的 extra_rc 共同引用计数的变量（对于对象结果，在今后的文中提到）。这里主要看 weak 全局 hash 表的结构与作用。
 
-* weak 表
+② weak 表
 
 weak表是一个弱引用表，实现为一个weak_table_t结构体，存储了某个对象相关的所有的弱引用信息。
 
@@ -236,7 +236,7 @@ StripedMap 是一个模板类，在这个类中有一个 array 成员，用来�
 
 这一步与上一步相反，通过 weak_register_no_lock 函数把心的对象进行注册操作，完成与对应的弱引用表进行绑定操作。
 
-初始化弱引用对象流程一览
+③ 初始化弱引用对象流程一览
 
 弱引用的初始化，从上文的分析中可以看出，主要的操作部分就在弱引用表的取键、查询散列、创建弱引用表等操作，可以总结出如下的流程图：
 
